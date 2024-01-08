@@ -20,7 +20,7 @@ pipeline {
         stage('Packaging/Pushing image') {
             steps {
                 withDockerRegistry(credentialsId: 'dockerhub', url: 'https://index.docker.io/v1/') {
-                    bat 'docker build -t ngotriduc/springboot'
+                    bat 'docker build -t ngotriduc/springboot .'
                     bat 'docker push ngotriduc/springboot'
                 }
             }

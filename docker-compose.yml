@@ -1,14 +1,14 @@
 services:
-#  app:
-#    container_name: ducnt-springboot
-#    build:
-#      context: .
-#      dockerfile: ./Dockerfile
-#    image: student-management/v1
-#    ports:
-#      - "8082:8080"
-#    depends_on:
-#      - postgres
+  ducnt-springboot:
+    container_name: ducnt-springboot
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    image: ngotriduc/springboot
+    ports:
+      - "8082:8080"
+    depends_on:
+      - postgres
 
   postgres:
     image: postgres
