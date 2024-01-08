@@ -8,11 +8,6 @@ pipeline {
         POSTGRES_ROOT_LOGIN = credentials('postgres-root-login')
     }
     stages {
-        stage('Change to linux') {
-            steps {
-                bat 'wsl'
-            }
-        }
 
         stage('Build with maven') {
             steps {
