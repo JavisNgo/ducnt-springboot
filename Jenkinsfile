@@ -11,7 +11,9 @@ pipeline {
     }
     stages {
         stage('Change to linux') {
-            bat 'wsl'
+            steps {
+                bat 'wsl'
+            }
         }
 
         stage('Build with maven') {
