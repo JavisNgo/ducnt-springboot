@@ -19,8 +19,8 @@ pipeline {
 
         stage('Packaging/Pushing image') {
             withDockerRegistry(credentialsId: 'dockerhub', url: 'https://index.docker.io/v1/') {
-                sh 'docker build -t ducnt/springboot'
-                sh 'docker push ducnt/springboot'
+                sh 'docker build -t ngotriduc/springboot'
+                sh 'docker push ngotriduc/springboot'
             }
         }
 
