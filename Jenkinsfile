@@ -11,17 +11,17 @@ pipeline {
 
         stage('Build with maven') {
             steps {
-                sh 'mvn --version'
-                sh 'java -version'
-                sh 'mvn clean package -DskipTests'
+                bat 'mvn --version'
+                bat 'java -version'
+                bat 'mvn clean package -DskipTests'
             }
         }
 
         stage('Packaging/Pushing image') {
             steps {
                 withDockerRegistry(credentialsId: 'dockerhub', url: 'https://index.docker.io/v1/') {
-                    sh 'docker build -t ngotriduc/springboot'
-                    sh 'docker push ngotriduc/springboot'
+                    bat 'docker build -t ngotriduc/springboot'
+                    bat 'docker push ngotriduc/springboot'
                 }
             }
         }
@@ -29,8 +29,8 @@ pipeline {
         stage('Deploy to DEV') {
             steps {
                 echo 'Deploying...'
-                sh 'docker -v'
-                sh 'docker compose up -d'
+                bat 'docker -v'
+                bat 'docker compose up -d'
             }
         }
 
